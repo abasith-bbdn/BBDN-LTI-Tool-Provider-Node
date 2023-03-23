@@ -118,6 +118,9 @@ export default class LtiAdvView extends React.Component {
         }
       });
     };
+    const postMessgae = () => {
+      window.parent.postMessage({subject:'lti.close'}, '*');
+    };
     return (
       <div>
         <Typography variant='h4' gutterBottom>
@@ -137,7 +140,10 @@ export default class LtiAdvView extends React.Component {
             spacing={2}
           >
             <Grid item xs>
-              <Button variant='contained' color='secondary' onClick={() => checkMicrophone()}>Test MicroPhone</Button>
+              <Button variant='contained' color='secondary' onClick={() => postMessgae()}>Post Message</Button>
+            </Grid>
+            <Grid item xs>
+              <Button variant='contained' color='secondary' onClick={() => checkMicroPhone()}>Test MicroPhone</Button>
             </Grid>
             <Grid item xs>
               <Button variant='contained' color='secondary' onClick={() => checkDisplayCap()}>Test Display Capture</Button>
